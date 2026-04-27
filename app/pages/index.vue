@@ -1,6 +1,13 @@
 <script setup lang="ts">
 // Developer data - easy to customize
-const developer = {
+const developer: {
+  name: string
+  title: string
+  location: string
+  github: string
+  linkedin: string
+  email: string
+} = {
   name: 'Alvaro Sacari',
   title: 'Frontend Developer',
   location: 'Lima, Peru',
@@ -8,6 +15,14 @@ const developer = {
   linkedin: 'https://www.linkedin.com/in/alvaro-sacari/',
   email: 'alvarosacari@gmail.com'
 }
+
+// Header config
+const headerLogo: string = developer.name.split(' ')[0] || ''
+const headerNavItems: { label: string; href: string }[] = [
+  { label: 'Proyectos', href: '#projects' },
+  { label: 'Sobre mí', href: '#about' },
+  { label: 'Contacto', href: '#contact' }
+]
 
 // Featured projects
 const projects = [
@@ -49,20 +64,11 @@ const techs = [
 
 <template>
   <div class="min-h-screen bg-gray-900 text-white font-sans">
-    <!-- Header -->
-    <header class="fixed top-0 left-0 right-0 z-50 bg-gray-900/80 backdrop-blur-md border-b border-gray-800">
-      <nav class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
-        <div class="text-xl font-bold text-emerald-400">{{ developer.name.split(' ')[0] }}</div>
-        <div class="hidden md:flex gap-8">
-          <a href="#projects" class="text-gray-300 hover:text-emerald-400 transition">Proyectos</a>
-          <a href="#about" class="text-gray-300 hover:text-emerald-400 transition">Sobre mí</a>
-          <a href="#contact" class="text-gray-300 hover:text-emerald-400 transition">Contacto</a>
-        </div>
-      </nav>
-    </header>
+    <!-- Header Component -->
+    <AppHeader :logo="headerLogo" :nav-items="headerNavItems" />
 
     <!-- Hero Section -->
-    <section class="min-h-screen flex items-center justify-center px-6 pt-20">
+    <section class="min-h-screen flex items-center justify-center px-6 pt-24">
       <div class="max-w-4xl mx-auto text-center">
         <div class="mb-6 inline-flex items-center gap-2 px-4 py-2 rounded-full bg-emerald-500/10 text-emerald-400 text-sm">
           <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
