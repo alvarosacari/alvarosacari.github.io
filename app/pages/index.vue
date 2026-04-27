@@ -242,15 +242,11 @@ const techs = [
       </div>
     </section>
 
-    <!-- Footer -->
-    <footer class="py-8 px-6 border-t border-gray-800">
-      <div class="max-w-6xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-4 text-gray-500 text-sm">
-        <p>© {{ new Date().getFullYear() }} {{ developer.name }}. Hecho con ☕ y Vue.js</p>
-        <div class="flex gap-6">
-          <a :href="developer.github" class="hover:text-emerald-400 transition">GitHub</a>
-          <a :href="developer.linkedin" class="hover:text-emerald-400 transition">LinkedIn</a>
-        </div>
-      </div>
-    </footer>
+    <!-- Footer Component -->
+    <AppFooter
+      :name="developer.name"
+      :github="developer.github"
+      :linkedin="developer.linkedin"
+    />
   </div>
 </template>
